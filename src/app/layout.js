@@ -7,17 +7,18 @@ import {
 import NavBarComponent from "@/components/NavBar/NavBarComponent";
 import MySideBar from "@/components/SideBar/SideBarComponent";
 
-import {Lato, Poppins} from 'next/font/google';
+import {Poppins} from 'next/font/google';
+import FooterComponent from "@/components/Footer/Footer";
 
 const poppins = Poppins({
     subsets: ['latin'], // Puedes añadir otros subsets si lo necesitas
     weight: ['400', '600'], // Especifica los pesos que usarás
 });
 
-const lato = Lato({
-    subsets: ['latin'], // Puedes añadir otros subsets si lo necesitas
-    weight: ['400', '700'], // Especifica los pesos que usarás
-});
+// const lato = Lato({
+//     subsets: ['latin'], // Puedes añadir otros subsets si lo necesitas
+//     weight: ['400', '700'], // Especifica los pesos que usarás
+// });
 
 export default function RootLayout({children}) {
     // todo importar la fuente Poppins
@@ -34,9 +35,11 @@ export default function RootLayout({children}) {
                 {/*        /!* Barra navegacion superior *!/*/}
                 <NavBarComponent/>
 
-                <Box bg={"#F9FAFB"} borderTopLeftRadius={"50px"} height={"91vh"} width={"100%"}>
+                <Box bg={"#F9FAFB"} borderTopLeftRadius={"50px"} width={"100%"}>
                     {children}
                 </Box>
+
+                <FooterComponent/>
             </Box>
         </Flex>
     </Provider>
