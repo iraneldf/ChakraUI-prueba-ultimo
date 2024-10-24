@@ -1,4 +1,4 @@
-import {Box, Flex, HStack, Input, Stack, Table, Text, VStack} from "@chakra-ui/react"
+import {Box, Flex, Group, HStack, Input, Stack, Table, Text, VStack} from "@chakra-ui/react"
 import {GoArrowLeft, GoArrowRight} from "react-icons/go";
 import {
     PaginationItems, PaginationNextTrigger, PaginationPrevTrigger, PaginationRoot
@@ -14,93 +14,100 @@ const Tabla = () => {
     return (
         <Box bg={'#FFFFFF'} boxShadow="0px 5px 80px 0px #7272720D" borderRadius={'20px'} py={'30px'} px={'35px'}>
 
-        <Flex direction="column" gap={'5px'}>
+            <Flex direction="column" gap={'5px'}>
 
-            <Box>
-                <Title title='Orders' subTitle='Assignments to messengers'/>
-            </Box>
+                <HStack justifyContent='space-between'>
+                    <Title title='Orders' subTitle='Assignments to messengers'/>
 
-            <Flex direction="column" gap={'20px'} py={'10px'}>
-                <Flex justify="space-between">
-                    <HStack gap={'10px'} px={'12px'}>
-                        <SelectButton/> <Text color={'#737791'}>Entries per page</Text>
-                    </HStack>
+                    <Group w={'452px'} color={'#A0AEC0'} attached>
+                        <Input type={'date'} borderRadius={'4px'} px={'16px'} borderWidth={'1px'}
+                               borderColor={'#E2E8F0'}/>
+                        <Input type={'date'} borderRadius={'4px'} px={'16px'} borderWidth={'1px'}
+                               borderColor={'#E2E8F0'}/>
+                    </Group>
+                </HStack>
 
-                    <HStack gap={'10px'} px={'12px'}>
-                        <Text color={'#737791'}>Search</Text>
-                        <Field w={'222px'}>
-                            <Input w={'222px'}/>
-                        </Field>
-                    </HStack>
-
-                </Flex>
-
-                <Box p={'12px'} borderRadius={'12px'}>
-
-                    <Table.Root size="md" interactive>
-                        <Table.Header>
-
-                            <Table.Row>
-                                <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
-                                                    color={"#4A5568"}>ORDER
-                                    ID</Table.ColumnHeader>
-                                <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
-                                                    color={"#4A5568"}>NAME</Table.ColumnHeader>
-                                <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
-                                                    color={"#4A5568"}>PRODUCTS</Table.ColumnHeader>
-                                <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
-                                                    color={"#4A5568"}>EMAIL/PHONE</Table.ColumnHeader>
-                                <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
-                                                    color={"#4A5568"}>Status</Table.ColumnHeader>
-                                <Table.ColumnHeader letterSpacing="0.05em" textAlign="end"></Table.ColumnHeader>
-                            </Table.Row>
-                        </Table.Header>
-                        <Table.Body>
-                            {items.map((item, index) => (
-
-                                <Table.Row lineHeight={'20px'} color={'#718096'}
-                                           bg={index % 2 === 0 ? '#EDF2F7' : 'white'} key={item.id}>
-                                    <Table.Cell whiteSpace="wrap">{item.id}</Table.Cell>
-                                    <Table.Cell>{item.name}</Table.Cell>
-                                    <Table.Cell>{item.category}</Table.Cell>
-                                    <Table.Cell>{item.email}</Table.Cell>
-                                    <Table.Cell>{item.price}</Table.Cell>
-
-                                    <Table.Cell textAlign="end">
-                                        <Button px={'8px'} fontSize={'12px'} w={'56px'} h={'24px'} bg={"#FF7500"}
-                                                borderRadius={"16px"}>
-                                            Assign
-                                        </Button>
-                                    </Table.Cell>
-                                </Table.Row>))}
-                        </Table.Body>
-                    </Table.Root>
-                </Box>
-
-                <PaginationRoot w={"100%"} count={6} pageSize={2} defaultPage={1} siblingCount={3}>
-                    <Flex direction="row" gap={"300px"} alignItems="center" justifyContent="space-between">
-                        <HStack color={"#FF750080"}>
-                            <GoArrowLeft/>
-                            <Text fontFamily={"lato"}
-                                  aling-selft={'start'}>Preview</Text>
+                <Flex direction="column" gap={'20px'} py={'10px'}>
+                    <Flex justify="space-between">
+                        <HStack gap={'10px'} px={'12px'}>
+                            <SelectButton/> <Text color={'#737791'}>Entries per page</Text>
                         </HStack>
 
-                        <Flex direction="row" gap={"5px"} alignItems="center">
-                            <PaginationItems/>
-                        </Flex>
-
-                        <HStack color={"#FF7500"}>
-                            <Text fontFamily={"lato"}>Next</Text>
-                            <GoArrowRight/>
+                        <HStack gap={'10px'} px={'12px'}>
+                            <Text color={'#737791'}>Search</Text>
+                            <Field w={'222px'}>
+                                <Input w={'222px'}/>
+                            </Field>
                         </HStack>
 
                     </Flex>
-                </PaginationRoot>
+
+                    <Box p={'12px'}  borderRadius={'12px'}>
+
+                        <Table.Root size="md" interactive>
+                            <Table.Header>
+
+                                <Table.Row>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>ORDER
+                                        ID</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>NAME</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>PRODUCTS</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>EMAIL/PHONE</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>Status</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" textAlign="end"></Table.ColumnHeader>
+                                </Table.Row>
+                            </Table.Header>
+                            <Table.Body>
+                                {items.map((item, index) => (
+
+                                    <Table.Row lineHeight={'20px'} color={'#718096'}
+                                               bg={index % 2 === 0 ? '#EDF2F7' : 'white'} key={item.id}>
+                                        <Table.Cell whiteSpace="wrap">{item.id}</Table.Cell>
+                                        <Table.Cell>{item.name}</Table.Cell>
+                                        <Table.Cell>{item.category}</Table.Cell>
+                                        <Table.Cell>{item.email}</Table.Cell>
+                                        <Table.Cell>{item.price}</Table.Cell>
+
+                                        <Table.Cell textAlign="end">
+                                            <Button px={'8px'} fontSize={'12px'} w={'56px'} h={'24px'} bg={"#FF7500"}
+                                                    borderRadius={"16px"}>
+                                                Assign
+                                            </Button>
+                                        </Table.Cell>
+                                    </Table.Row>))}
+                            </Table.Body>
+                        </Table.Root>
+                    </Box>
+
+                    <PaginationRoot w={"100%"} count={6} pageSize={2} defaultPage={1} siblingCount={3}>
+                        <Flex direction="row" gap={"300px"} alignItems="center" justifyContent="space-between">
+                            <HStack color={"#FF750080"}>
+                                <GoArrowLeft/>
+                                <Text fontFamily={"lato"}
+                                      aling-selft={'start'}>Preview</Text>
+                            </HStack>
+
+                            <Flex direction="row" gap={"5px"} alignItems="center">
+                                <PaginationItems/>
+                            </Flex>
+
+                            <HStack color={"#FF7500"}>
+                                <Text fontFamily={"lato"}>Next</Text>
+                                <GoArrowRight/>
+                            </HStack>
+
+                        </Flex>
+                    </PaginationRoot>
+
+                </Flex>
 
             </Flex>
-
-        </Flex>
-    </Box>)
+        </Box>)
 }
 
 const items = [{

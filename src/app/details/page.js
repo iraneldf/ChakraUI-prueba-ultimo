@@ -1,14 +1,21 @@
+'use client'
 import {
-    Box, Flex, HStack, Text, VStack,
+    Badge,
+    Box, Flex, HStack, Table, Text, Textarea, VStack,
 } from '@chakra-ui/react'
 import ToolBar from '@/views/home/toolbar'
 import TableSeccion from '@/views/home/table-seccion'
 import Tabla from "@/views/home/table-seccion/Tabla";
 import Assignments from "@/views/home/assignments";
 import Title from "@/components/title";
+import {Button} from "@/components/ui/button";
+import {useState} from "react";
+import InfoDetails from "@/views/details/InfoDetails";
 
 
 export default function Home() {
+
+    const [textAreavalue, setTextAreavalue] = useState('Calle 5 e/ 25 y 36 Siboney Playa #4578')
     return (
         <Box
             width={'100%'}
@@ -20,105 +27,107 @@ export default function Home() {
             padding={'60px'}
         >
 
-            {/*cuadro 1*/}
-            <Flex gap={'40px'} w={'100%'} h={'521px'}>
-                {/*cuadro 1.1*/}
-                <Flex
-                    direction={'column'}
-                    gap={'5px'}
-                    bg={'#FFFFFF'}
-                    boxShadow={'0px 5px 80px 0px #7272720D'}
-                    py={'30px'}
-                    px={'35px'}
-                    borderRadius='20px'
-                    flex={'3'}>
+            <InfoDetails/>
 
-                    <Title title='Order User' subTitle='User creating the order'/>
-
-                    <Flex direction={'column'} gap={'0px'} py={'10px'}>
-
-                        <VStack align='start' py={'10px'} gap={'10px'}>
-                            <Text color={'#737791'}>Username</Text>
-                            <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'} alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                 px={'16px'} borderRadius={'4px'}>rolando</Box>
-                        </VStack>
-
-                        <HStack justifyContent='space-between' gap={'20px'}>
-                            <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
-                                <Text color={'#737791'}>Firstname</Text>
-                                <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'} alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                     px={'16px'} borderRadius={'4px'}> Rolando </Box>
-                            </VStack>
-
-                            <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
-                                <Text color={'#737791'}>Lastname</Text>
-                                <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'} alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                     px={'16px'} borderRadius={'4px'}>Fonseca
-                                    Martines </Box>
-                            </VStack>
-
-                        </HStack>
-
-                        <VStack align='start' py={'10px'} gap={'10px'}>
-                            <Text color={'#737791'}>Identity Card</Text>
-                            <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'} alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                 px={'16px'} borderRadius={'4px'}>8502034587</Box>
-                        </VStack>
-
-                        <HStack justifyContent='space-between' gap={'20px'}>
-                            <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
-                                <Text color={'#737791'}>Phone Number</Text>
-                                <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'} alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                     px={'16px'} borderRadius={'4px'}> +53 5 741 23 69 </Box>
-                            </VStack>
-
-                            <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
-                                <Text color={'#737791'}>Email</Text>
-                                <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'} alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                     px={'16px'} borderRadius={'4px'}>rolando@gmail.com</Box>
-                            </VStack>
-
-                        </HStack>
+            <Flex w={'100%'} gap={'40px'} justify="space-between">
+                <VStack align={'start'} w={'100%'} borderRadius={'20px'} boxShadow={'0px 5px 80px 0px #7272720D'}
+                        bg={'#FFFFFF'} py={'30px'}
+                        px={'35px'}>
 
 
-                    </Flex>
+                    <Title subTitle={'Order Products'} title={'Products'}/>
 
-                </Flex>
-                {/*cuadro 1.2*/}
-                <Flex
-                    direction={'column'}
-                    gap={'5px'}
-                    bg={'#FFFFFF'}
-                    boxShadow={'0px 5px 80px 0px #7272720D'}
-                    py={'30px'}
-                    px={'35px'}
-                    borderRadius='20px'
-                    flex={'1'}>
+                    <Box py={'10px'} w={'100%'}>
+                        <Table.Root size="md" interactive>
+                            <Table.Header>
 
-                    <Title title='Shipping Address' subTitle='Order Shipping Address'/>
+                                <Table.Row>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>NOMBRE</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>Precio</Table.ColumnHeader>
 
-                    <Flex direction={'column'} gap={'0px'} py={'10px'}>
-                        <Box>Username</Box>
-                        <Box>Firstname Lastname</Box>
-                        <Box>Identity Card</Box>
-                        <Box>Phone Number Email</Box>
-                    </Flex>
+                                </Table.Row>
+                            </Table.Header>
+                            <Table.Body>
+                                {items.map((item, index) => (
 
-                </Flex>
+                                    <Table.Row lineHeight={'20px'} color={'#718096'}
+                                               bg={index % 2 === 0 ? '#EDF2F7' : 'white'} key={item.id}>
+                                        <Table.Cell whiteSpace="wrap">{item.nombre}</Table.Cell>
+                                        <Table.Cell>{item.precio}</Table.Cell>
+                                    </Table.Row>))}
+                            </Table.Body>
+                        </Table.Root>
+                    </Box>
+                </VStack>
 
+                <VStack align={'start'} w={'100%'} borderRadius={'20px'} boxShadow={'0px 5px 80px 0px #7272720D'}
+                        bg={'#FFFFFF'} py={'30px'}
+                        px={'35px'}>
+                    <HStack w={'100%'} justify="space-between">
+                        <Title subTitle={'Status Orders'} title={'Status'}/>
+                        <Button bg={'#FF7500'} borderRadius={'16px'} w={'147px'}>Change Status</Button>
+                    </HStack>
 
-            </Flex>
+                    <Box py={'10px'} w={'100%'}>
+                        <Table.Root size="md" interactive>
+                            <Table.Header>
+                                <Table.Row>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>FECHA</Table.ColumnHeader>
+                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                                        color={"#4A5568"}>Status</Table.ColumnHeader>
 
-            {/*////////////////////////*/}
+                                </Table.Row>
+                            </Table.Header>
+                            <Table.Body>
+                                {items2.map((item, index) => (
 
-            <Flex gap={'40px'}>
-                <Box>
+                                    <Table.Row lineHeight={'20px'} color={'#718096'}
+                                               bg={index % 2 === 0 ? '#EDF2F7' : 'white'} key={item.id}>
+                                        <Table.Cell whiteSpace="wrap">{item.fecha}</Table.Cell>
+                                        <Table.Cell> <Badge fontWeight={item.status.weight} color={item.status.color} py={item.status.py}
+                                                            bg={item.status.bg}>{item.status.text}</Badge> </Table.Cell>
+                                    </Table.Row>))}
+                            </Table.Body>
+                        </Table.Root>
+                    </Box>
 
-                </Box>
-
-                <Box>
-
-                </Box>
+                </VStack>
             </Flex>
         </Box>)
 }
+
+const items = [{
+    id: 1,
+    nombre: 'OLLA REINA ROYAL 6L',
+    precio: "$75.00"
+}, {
+    id: 2,
+    nombre: 'LICUADORA MILEXUS CON JARRA DE VIDRIO 550W ',
+    precio: "$45.00"
+}]
+
+const items2 = [{
+    id: 1,
+    fecha: '16/10/2024 10:45:20',
+    status: {
+        text: 'Packaging',
+        bg: '#FEEBCB',
+        py: '4px',
+        color: '#744210',
+        weight:'600'
+    }
+}, {
+    id: 2,
+    fecha: '15/10/2024 08:30:13',
+    status: {
+        text: "PENDING",
+        bg: '#EDF2F7',
+        py: '4px',
+        color: '#1A202C',
+        weight:'600'
+    }
+}]
+

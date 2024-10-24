@@ -31,7 +31,7 @@ export default function RootLayout({children}) {
             <MySideBar/>
 
             {/*    /!* Main Content *!/*/}
-            <Box bg={'black'}  flexGrow={'1'} >
+            <Box flexGrow={'1'} >
                 {/*        /!* Barra navegacion superior *!/*/}
                 <NavBarComponent/>
 

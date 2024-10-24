@@ -74,7 +74,7 @@ function CustomHoverCard({title, IconComponent}) {
     const [hovered, setHovered] = React.useState(false);
 
     return (
-        <Link href={"/asdasd"}>
+        <Link href={"/details"}>
             <Box
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
