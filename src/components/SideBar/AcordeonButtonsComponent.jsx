@@ -10,16 +10,18 @@ import {
 export default function AcordeonButtonsComponent() {
     const items = [
         {value: "a", title: "Client", text: 'texto'},
+        {value: "b", title: "Users", text: 'texto'},
+        {value: "c", title: "Categories", text: 'texto'},
     ];
 
     return (
         // todo ajustas color de la flecha y distancia de la flecha al texto
-        <AccordionRoot spaceY="4" m="5" variant="plain" color={"red"} collapsible defaultValue={["b"]}>
+        <AccordionRoot  spaceY="4" m="5" variant="plain" color={"#A0AEC0"}  collapsible defaultValue={["b",'a']}>
             {items.map((item, index) => (
                 <AccordionItem key={index} value={item.value}>
 
                     <Box position="relative">
-                        <AccordionItemTrigger color={"#A0AEC0"} indicatorPlacement="start">
+                        <AccordionItemTrigger indicatorPlacement="start">
                             {item.title}
                         </AccordionItemTrigger>
 

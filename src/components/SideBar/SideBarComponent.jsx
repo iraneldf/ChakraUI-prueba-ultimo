@@ -29,9 +29,6 @@ export default function MySideBar() {
         <Box
             as="nav"
             pos="relative"
-            top="0"
-            left="0"
-
             px={"20px"}
             py={"30px"}
             bg="white"

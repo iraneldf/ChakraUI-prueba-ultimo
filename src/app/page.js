@@ -6,7 +6,8 @@ import TableSeccion from '@/views/home/table-seccion'
 
 
 export default function Home() {
-    return (<Box
+    return (
+        <Box
             width={'100%'}
             display={'flex'}
             flexDirection={'column'}

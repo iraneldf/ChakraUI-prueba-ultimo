@@ -11,7 +11,8 @@ import SelectButton from "@/views/home/table-seccion/table-selec-button";
 import {Field} from "@/components/ui/field";
 
 const Tabla = () => {
-    return (<Box bg={'#FFFFFF'} boxShadow="0px 5px 80px 0px #7272720D" borderRadius={'20px'} py={'30px'} px={'35px'}>
+    return (
+        <Box bg={'#FFFFFF'} boxShadow="0px 5px 80px 0px #7272720D" borderRadius={'20px'} py={'30px'} px={'35px'}>
 
         <Flex direction="column" gap={'5px'}>
 

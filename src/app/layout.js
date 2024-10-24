@@ -26,16 +26,16 @@ export default function RootLayout({children}) {
     return (<html lang='es' suppressHydrationWarning>
     <body className={`${poppins.className}`}>
     <Provider>
-        <Flex direction="row" minHeight="91vh">
+        <Flex direction="row" minHeight="100vh" alignItems="stretch">
             {/*    /!* Barra de navegacion lateral *!/*/}
             <MySideBar/>
 
             {/*    /!* Main Content *!/*/}
-            <Box flex="1">
+            <Box bg={'black'}  flexGrow={'1'} >
                 {/*        /!* Barra navegacion superior *!/*/}
                 <NavBarComponent/>
 
-                <Box bg={"#F9FAFB"} borderTopLeftRadius={"50px"} width={"100%"}>
+                <Box bg={"#F9FAFB"} flex="1" borderTopLeftRadius={"50px"} width={"100%"}>
                     {children}
                 </Box>
 
