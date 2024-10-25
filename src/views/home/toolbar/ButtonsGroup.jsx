@@ -10,12 +10,12 @@ const ButtonsGroup = () => {
 
     return (
         <Group attached>
-            <Button onClick={ponertrue}
-                    bg={showMap ? '#EDF2F7' : '#FFFFFF'} color={'black'} borderRadius={"16px"}>
+            <Button onClick={ponerfalse}
+                    bg={!showMap ? '#EDF2F7' : '#FFFFFF'} color={'black'} borderRadius={"16px"}>
                 <Image src={'/assets/icons/left-icon.png'} alt={'Icono'} width={16} height={16}/>
 
             </Button>
-            <Button onClick={ponerfalse} bg={!showMap ? '#EDF2F7' : '#FFFFFF'} variant="subtle" borderWidth={'1px'}
+            <Button onClick={ponertrue} bg={showMap ? '#EDF2F7' : '#FFFFFF'} variant="subtle" borderWidth={'1px'}
                     borderRadius={"16px"}>
                 <Image src={'/assets/icons/right-icon.png'} alt={'Icono'} width={16} height={16}/>
             </Button>

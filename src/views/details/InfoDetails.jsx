@@ -3,6 +3,8 @@ import {Box, Flex, HStack, Text, Textarea, VStack} from "@chakra-ui/react";
 import Title from "@/components/title";
 import {Button} from "@/components/ui/button";
 import {useState} from "react";
+import MapaComponent from "@/components/home/MapaComponent";
+import MapaComponentMini from "@/components/home/MapaComponentMini";
 
 export default function InfoDetails() {
     const [textAreavalue, setTextAreavalue] = useState('Calle 5 e/ 25 y 36 Siboney Playa #4578')
@@ -96,7 +98,9 @@ export default function InfoDetails() {
 
                 <Flex direction={'column'} gap={'20px'} py={'10px'}>
                     {/*todo mapa*/}
-                    <Box w={'428px'} h={'282px'}>Mapa</Box>
+                    <Box w={'428px'} h={'282px'}>
+                        <MapaComponentMini/>
+                    </Box>
                     <Textarea
                         lineHeight={'20px'}
                         borderWidth={'1px'}

@@ -16,7 +16,7 @@ import Image from "next/image";
 
 export default function MySideBar() {
     const menuItems = [{title: 'Dashboard', IconComponent: MdGridView}, {
-        title: 'Orders', IconComponent: LuFileText
+        title: 'Orders', IconComponent: LuFileText, active: true
     }, {title: 'Banners', IconComponent: LuImage}, {
         title: 'Public Info', IconComponent: LuBookOpen
     }, {title: 'Notifications', IconComponent: LuBell}, {
@@ -32,9 +32,10 @@ export default function MySideBar() {
             py={"30px"}
             boxShadow="none"
         >
-            <Flex direction="column" justify-conten={"center"}  width={"229px"}>
+            <Flex direction="column" justify-conten={"center"} width={"229px"}>
                 {/* Título del sidebar */}
-                <Box width={"229px"} aling={"center"}  height="68px" display="flex" alignItems="center" justifyContent="center" mb={"49px"}>
+                <Box width={"229px"} aling={"center"} height="68px" display="flex" alignItems="center"
+                     justifyContent="center" mb={"49px"}>
                     <Image
                         src={'/assets/images/logo.png'}
                         alt={'Logo'}
@@ -50,7 +51,7 @@ export default function MySideBar() {
                 {/* Contenido del sidebar con cartas personalizadas */}
                 <VStack gap={"5px"} align="stretch">
                     {menuItems.map((item, index) => (
-                        <CustomHoverCard key={index} title={item.title} IconComponent={item.IconComponent}/>))}
+                        <CustomHoverCard key={index} title={item.title} IconComponent={item.IconComponent} active={item.active}/>))}
                 </VStack>
 
 
@@ -68,7 +69,7 @@ export default function MySideBar() {
     );
 }
 
-function CustomHoverCard({title, IconComponent}) {
+function CustomHoverCard({title, IconComponent, active}) {
     const [hovered, setHovered] = React.useState(false);
 
     return (
@@ -77,8 +78,8 @@ function CustomHoverCard({title, IconComponent}) {
                 onMouseEnter={() => setHovered(true)}
                 onMouseLeave={() => setHovered(false)}
                 transition="all 0.2s ease"
-                bg={hovered ? "#FFF9EC" : "transparent"}
-                color={hovered ? "#FF7500" : "#A0AEC0"}
+                bg={hovered || active ? "#FFF9EC" : "transparent"}
+                color={hovered || active  ? "#FF7500" : "#A0AEC0"}
                 borderRadius="16px"
                 px={"24px"}
                 h={"60px"}
@@ -88,10 +89,10 @@ function CustomHoverCard({title, IconComponent}) {
 
                 <HStack gap={"22px"}>
                     {/* Icono y texto en una sola línea */}
-                    <Icon fontSize="24px" color={hovered ? "#FF7500" : "#A0AEC0"}>
+                    <Icon fontSize="24px" color={hovered || active  ? "#FF7500" : "#A0AEC0"}>
                         <IconComponent/>
                     </Icon>
-                    <Heading fontWeight="600" size="14px" >{title}</Heading>
+                    <Heading fontWeight="600" size="14px">{title}</Heading>
 
                 </HStack>
 
