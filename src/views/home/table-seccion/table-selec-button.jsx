@@ -14,8 +14,7 @@ const SelectButton = () => {
     return (
         <SelectRoot fontFamily="'Inter Regular', sans-serif" collection={entries} size="sm" width="98px" borderRadius={'6px'} borderWidth={'1px'}>
             <SelectTrigger>
-                <SelectValueText placeholder="10"/>
-            </SelectTrigger>
+                <SelectValueText placeholder="10"/>            </SelectTrigger>
             <SelectContent>
                 {entries.items.map((movie) => (
                     <SelectItem item={movie} key={movie.value}>

@@ -1,3 +1,4 @@
+'use client'
 import {Box, Flex, Group, HStack, Input, Stack, Table, Text, VStack} from "@chakra-ui/react"
 import {GoArrowLeft, GoArrowRight} from "react-icons/go";
 import {
@@ -9,8 +10,15 @@ import {defineTextStyles} from "@chakra-ui/react"
 import Title from "@/components/title";
 import SelectButton from "@/views/home/table-seccion/table-selec-button";
 import {Field} from "@/components/ui/field";
+import Image from "next/image";
+import MapaComponent from "@/components/home/MapaComponent";
+import {useState} from "react";
+import {useMyContext} from "@/context/ShowMapContext";
 
 const Tabla = () => {
+
+    const {showMap} = useMyContext();
+
     return (
         <Box bg={'#FFFFFF'} boxShadow="0px 5px 80px 0px #7272720D" borderRadius={'20px'} py={'30px'} px={'35px'}>
 
@@ -20,14 +28,24 @@ const Tabla = () => {
                     <Title title='Orders' subTitle='Assignments to messengers'/>
 
                     <Group w={'452px'} color={'#A0AEC0'} attached>
-                        <Input type={'date'} borderRadius={'4px'} px={'16px'} borderWidth={'1px'}
+                        <Input lineHeight='19.36px' type={'text'} defaultValue={'1/6/2024'} borderRadius={'4px'}
+                               px={'16px'}
+                               borderWidth={'1px'}
                                borderColor={'#E2E8F0'}/>
-                        <Input type={'date'} borderRadius={'4px'} px={'16px'} borderWidth={'1px'}
+
+                        <Input lineHeight='19.36px' type={'date'} defaultValue="2024-07-06" borderRadius={'4px'}
+                               px={'16px'}
+                               borderWidth={'1px'}
                                borderColor={'#E2E8F0'}/>
                     </Group>
                 </HStack>
 
-                <Flex direction="column" gap={'20px'} py={'10px'}>
+
+                <Box display={!showMap ? 'none' : 'block'} py={'10px'}>
+                    <MapaComponent/>
+                </Box>
+
+                <Flex display={showMap ? 'none' : 'block'} direction="column" gap={'20px'} py={'10px'}>
                     <Flex justify="space-between">
                         <HStack gap={'10px'} px={'12px'}>
                             <SelectButton/> <Text color={'#737791'}>Entries per page</Text>
@@ -42,24 +60,35 @@ const Tabla = () => {
 
                     </Flex>
 
-                    <Box p={'12px'}  borderRadius={'12px'}>
+                    <Box p={'12px'} borderRadius={'12px'}>
 
                         <Table.Root size="md" interactive>
                             <Table.Header>
 
                                 <Table.Row>
-                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                    <Table.ColumnHeader borderColor={'#FFFFFF'} letterSpacing="0.05em"
+                                                        fontSize={"12px"}
+                                                        fontWeight={"700"}
                                                         color={"#4A5568"}>ORDER
                                         ID</Table.ColumnHeader>
-                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                    <Table.ColumnHeader borderColor={'#FFFFFF'} letterSpacing="0.05em"
+                                                        fontSize={"12px"}
+                                                        fontWeight={"700"}
                                                         color={"#4A5568"}>NAME</Table.ColumnHeader>
-                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                    <Table.ColumnHeader borderColor={'#FFFFFF'} letterSpacing="0.05em"
+                                                        fontSize={"12px"}
+                                                        fontWeight={"700"}
                                                         color={"#4A5568"}>PRODUCTS</Table.ColumnHeader>
-                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                    <Table.ColumnHeader borderColor={'#FFFFFF'} letterSpacing="0.05em"
+                                                        fontSize={"12px"}
+                                                        fontWeight={"700"}
                                                         color={"#4A5568"}>EMAIL/PHONE</Table.ColumnHeader>
-                                    <Table.ColumnHeader letterSpacing="0.05em" fontSize={"12px"} fontWeight={"700"}
+                                    <Table.ColumnHeader borderColor={'#FFFFFF'} letterSpacing="0.05em"
+                                                        fontSize={"12px"}
+                                                        fontWeight={"700"}
                                                         color={"#4A5568"}>Status</Table.ColumnHeader>
-                                    <Table.ColumnHeader letterSpacing="0.05em" textAlign="end"></Table.ColumnHeader>
+                                    <Table.ColumnHeader borderColor={'#FFFFFF'} letterSpacing="0.05em"
+                                                        textAlign="end"></Table.ColumnHeader>
                                 </Table.Row>
                             </Table.Header>
                             <Table.Body>
@@ -67,14 +96,16 @@ const Tabla = () => {
 
                                     <Table.Row lineHeight={'20px'} color={'#718096'}
                                                bg={index % 2 === 0 ? '#EDF2F7' : 'white'} key={item.id}>
-                                        <Table.Cell whiteSpace="wrap">{item.id}</Table.Cell>
-                                        <Table.Cell>{item.name}</Table.Cell>
-                                        <Table.Cell>{item.category}</Table.Cell>
-                                        <Table.Cell>{item.email}</Table.Cell>
-                                        <Table.Cell>{item.price}</Table.Cell>
+                                        <Table.Cell whiteSpace="wrap"
+                                                    borderColor={'#FFFFFF'}>{item.id}</Table.Cell>
+                                        <Table.Cell borderColor={'#FFFFFF'}>{item.name}</Table.Cell>
+                                        <Table.Cell borderColor={'#FFFFFF'}>{item.category}</Table.Cell>
+                                        <Table.Cell borderColor={'#FFFFFF'}>{item.email}</Table.Cell>
+                                        <Table.Cell borderColor={'#FFFFFF'}>{item.price}</Table.Cell>
 
                                         <Table.Cell textAlign="end">
-                                            <Button px={'8px'} fontSize={'12px'} w={'56px'} h={'24px'} bg={"#FF7500"}
+                                            <Button px={'8px'} fontSize={'12px'} w={'56px'} h={'24px'}
+                                                    bg={"#FF7500"}
                                                     borderRadius={"16px"}>
                                                 Assign
                                             </Button>
@@ -106,9 +137,12 @@ const Tabla = () => {
 
                 </Flex>
 
+
             </Flex>
+
         </Box>)
 }
+
 
 const items = [{
     id: 'O-4516',

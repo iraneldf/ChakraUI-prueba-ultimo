@@ -11,15 +11,14 @@ const TableSeccion = () => {
             flexDirection={'row'}
             gap={'40px'}
         >
-            <Box borderRadius='10px'  flex={'10'}>
+
+            <Box borderRadius='10px' flex={'10'}>
                 <Tabla/>
             </Box>
 
             <Box flex={'2'}>
                 <Assignments/>
             </Box>
-
-
 
 
         </Box>

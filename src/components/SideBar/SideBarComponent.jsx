@@ -28,10 +28,8 @@ export default function MySideBar() {
 
         <Box
             as="nav"
-            pos="relative"
             px={"20px"}
             py={"30px"}
-            bg="white"
             boxShadow="none"
         >
             <Flex direction="column" justify-conten={"center"}  width={"229px"}>
@@ -84,7 +82,6 @@ function CustomHoverCard({title, IconComponent}) {
                 borderRadius="16px"
                 px={"24px"}
                 h={"60px"}
-                boxShadow={"none"}
                 display="flex"
                 alignItems="center"
             >

@@ -1,9 +1,8 @@
-'use Client'
+'use client'
 import {Box, Flex, HStack, Text, Textarea, VStack} from "@chakra-ui/react";
 import Title from "@/components/title";
 import {Button} from "@/components/ui/button";
 import {useState} from "react";
-
 
 export default function InfoDetails() {
     const [textAreavalue, setTextAreavalue] = useState('Calle 5 e/ 25 y 36 Siboney Playa #4578')
@@ -32,6 +31,7 @@ export default function InfoDetails() {
                     </VStack>
 
                     <HStack justifyContent='space-between' gap={'20px'}>
+
                         <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
                             <Text color={'#737791'}>Firstname</Text>
                             <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'}
@@ -57,11 +57,12 @@ export default function InfoDetails() {
                     </VStack>
 
                     <HStack justifyContent='space-between' gap={'20px'}>
+
                         <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
                             <Text color={'#737791'}>Phone Number</Text>
                             <Box color={'#2D3748'} lineHeight={'19.36px'} h={'40px'} display={'flex'}
                                  alignItems={'center'} w={'100%'} borderWidth={'1px'}
-                                 px={'16px'} borderRadius={'4px'}> +53 5 741 23 69 </Box>
+                                 px={'16px'} borderRadius={'4px'}> +5357412369 </Box>
                         </VStack>
 
                         <VStack align={'start'} w={'100%'} gap={'10px'} py={'10px'}>
@@ -94,6 +95,7 @@ export default function InfoDetails() {
                 </HStack>
 
                 <Flex direction={'column'} gap={'20px'} py={'10px'}>
+                    {/*todo mapa*/}
                     <Box w={'428px'} h={'282px'}>Mapa</Box>
                     <Textarea
                         lineHeight={'20px'}

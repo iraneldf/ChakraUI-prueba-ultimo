@@ -7,10 +7,8 @@ export default function FooterComponent() {
 
 
     return (
-        <Box m={'0p'} p={'10px'} bg={"#F9FAFB"}>
-            <Center>
-                <Text fontSize={'12px'} lineHeight={'18px'} color={'#737791'}>© 2024 VoyPati Made by NOX Creation</Text>
-            </Center>
-        </Box>
+        <Center w={'100%'} bg={"#F9FAFB"} p={'10px'}>
+            <Text fontSize={'12px'} lineHeight={'18px'} color={'#737791'}>© 2024 VoyPati Made by NOX Creation</Text>
+        </Center>
     )
 };
